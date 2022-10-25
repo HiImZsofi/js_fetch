@@ -3,21 +3,27 @@ let mindLista = []
 document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('mind').addEventListener('click', async () => {
-        mindlista = adatMegjelenites.result 
+        mindLista = adatMegjelenites.result 
         adatMegjelenites(mindLista)
     })
 
     document.getElementById('abc').addEventListener('click', async () => {
         mindLista = adatMegjelenites.result 
-        mindLista.sort(function(a, b){
+        mindLista.sort(function(a, b){ 
             var nameA = a.title.toLowerCase(), nameB = b.title.toLowerCase();
-            if (nameA < nameB) //sort string ascending
+            if (nameA < nameB) 
              return -1;
             if (nameA > nameB)
              return 1;
-            return 0; //default return value (no sorting)
+            return 0; 
            });
            adatMegjelenites(mindLista)
+    })
+
+    document.getElementById('legdragabb').addEventListener('click', async () => {
+        mindLista = adatMegjelenites.result 
+        mindLista.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        adatMegjelenites(mindLista)
     })
 })
 
