@@ -1,4 +1,5 @@
 let mindLista = []
+let ajanlatlista = []
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -24,6 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
         mindLista = adatMegjelenites.result 
         mindLista.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
         adatMegjelenites(mindLista)
+    })
+
+    document.getElementById('ajanlat').addEventListener('click', async () => {
+        mindLista = adatMegjelenites.result 
+      /*  mindLista.forEach(element => {
+            if(mindLista.price < 100){
+                ajanlatlista.push(element)   Cannot read properties of undefined (reading 'forEach')???????????????????????????????????????????????????????????????????????????????
+            }
+        });*/
+        for(let i = 0; i < mindLista.length; i++) {
+            if(mindLista.price < 100){
+                ajanlatlista.push(mindLista[i])
+            }
+        }
+        adatMegjelenites(ajanlatlista)
     })
 })
 
